@@ -1,0 +1,15 @@
+{
+  "run_type": "server",
+  "local_addr": "0.0.0.0",
+  "local_port": 443,
+  "remote_addr": "127.0.0.1",
+  "remote_port": 80,
+  "password": [
+    "HossEin128@"
+  ],
+  "ssl": {
+    "cert": "/etc/letsencrypt/live/hsinvpn.duckdns.org/fullchain.pem",
+    "key": "/etc/letsencrypt/live/hsinvpn.duckdns.org/privkey.pem",
+    "sni": "hsinvpn.duckdns.org"
+  }
+}
