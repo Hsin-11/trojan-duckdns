@@ -10,8 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run something
-        run: echo "Hello from Trojan!"
+      - name: Pull Trojan Docker image and run
+        run: |
+          docker pull p4gefau1t/trojan
+          docker stop trojan || true
+          docker rm trojan || true
+          docker run -d --name trojan \
+            -p 443:443 \
+            -v ${{ github.workspace }}/config.json:/etc/trojan/config.json \
+            p4gefau1t/trojan
